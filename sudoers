@@ -1,0 +1,2 @@
+# Make session last longer (10 hours here).
+Defaults:{username} timestamp_timeout=36000
