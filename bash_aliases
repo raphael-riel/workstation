@@ -3,6 +3,9 @@ alias l="ll"
 
 alias subl="~/work/software/sublime/sublime_text"
 
+alias grep='grep --color=auto'
+alias grepn='grep -n'
+
 # enable color support of ls and also add handy aliases
 eval `dircolors -b`
 alias ls='ls --color=auto'
@@ -17,5 +20,5 @@ alias lfiles='ls -lhA |grep ^-'
 # To see something coming into ls output: lss
 alias lss='ls -lrt | grep $1'
 
-# To check a process is running in a box with a heavy load: pss
-alias pss='ps -ef | grep $1'
+# Check for a process
+alias pss='ps aux | grepn $1'
