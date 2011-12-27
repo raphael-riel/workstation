@@ -110,4 +110,3 @@ fi
 . ~/.custom_prompt
 
 PATH=~/bin/:$PATH
-~/workstation/shell/reset_sshagent.sh
