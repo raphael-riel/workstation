@@ -70,6 +70,12 @@ Config:
 SELECT name, setting, context FROM pg_settings WHERE category ~ 'Autovacuum';
 ```
 
+Last run:
+
+```sql
+SELECT last_autovacuum FROM "pg_catalog"."pg_stat_all_tables" WHERE last_autovacuum IS NOT NULL AND schemaname = 'public' ORDER BY last_autovacuum DESC LIMIT 1;
+```
+
 ```sql
 select * from "pg_catalog"."pg_stat_all_tables" ORDER BY autovacuum_count DESC;
 
