@@ -60,3 +60,23 @@ FROM (
     ) AS all_tables
 ) AS total;
 ```
+
+
+## Auto Vacuum status
+
+Config: 
+
+```sql
+SELECT name, setting, context FROM pg_settings WHERE category ~ 'Autovacuum';
+```
+
+```sql
+select * from "pg_catalog"."pg_stat_all_tables" ORDER BY autovacuum_count DESC;
+
+
+SELECT schemaname, relname, last_autovacuum, last_autoanalyze, autovacuum_count, autoanalyze_count 
+FROM "pg_catalog"."pg_stat_all_tables" 
+WHERE (last_autovacuum IS NOT NULL OR last_autoanalyze IS NOT NULL) 
+  AND schemaname = 'public' 
+ORDER BY last_autovacuum DESC, last_autoanalyze DESC;
+```
