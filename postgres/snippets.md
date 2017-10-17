@@ -87,6 +87,8 @@ WHERE (last_autovacuum IS NOT NULL OR last_autoanalyze IS NOT NULL)
 ORDER BY last_autovacuum DESC, last_autoanalyze DESC;
 ```
 
+# Autovacuum simulation
+
 List tables elegible for AutoVacuum according to current settings, or simulated ones.
 
 ```sql
