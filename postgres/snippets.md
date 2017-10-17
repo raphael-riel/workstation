@@ -87,7 +87,7 @@ WHERE (last_autovacuum IS NOT NULL OR last_autoanalyze IS NOT NULL)
 ORDER BY last_autovacuum DESC, last_autoanalyze DESC;
 ```
 
-List Vacuum-ready table as per current configurations.		
+List Vacuum-ready table as per current configurations (real or simulated).		
 Source: http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.PostgreSQL.CommonDBATasks.html
 
 ```sql
@@ -95,7 +95,7 @@ WITH
      -- vbt AS (SELECT setting AS autovacuum_vacuum_threshold FROM pg_settings WHERE name = 'autovacuum_vacuum_threshold'),
      vbt AS (SELECT 50 AS autovacuum_vacuum_threshold),
      -- vsf AS (SELECT setting AS autovacuum_vacuum_scale_factor FROM pg_settings WHERE name = 'autovacuum_vacuum_scale_factor'),
-     vsf AS (SELECT 0.001 AS autovacuum_vacuum_scale_factor),
+     vsf AS (SELECT 0.1 AS autovacuum_vacuum_scale_factor),
      -- fma AS (SELECT setting AS autovacuum_freeze_max_age FROM pg_settings WHERE name = 'autovacuum_freeze_max_age'),
      fma AS (SELECT 200000000 AS autovacuum_freeze_max_age),
      sto AS (
